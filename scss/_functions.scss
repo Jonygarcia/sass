@@ -1,0 +1,8 @@
+// Funciones
+@function halfSize($size) {
+    @return $size/2;
+}
+
+@function doubleSize($size) {
+    @return $size * 2;
+}

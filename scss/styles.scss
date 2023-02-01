@@ -1,0 +1,135 @@
+// Imports
+@import "variables";
+@import "functions";
+@import "mixins";
+
+// Bucles
+@for $i from 1 to 5 {
+    .row-#{$i} {
+        margin-top: $marginTop;
+        width: 100% / 5 * $i;
+    }
+}
+
+$i: 1;
+
+@while $i <=5 {
+    .while-#{$i} {
+        margin-top: $marginTop;
+        width: 100% / 5 * $i;
+    }
+
+    $i: $i + 1;
+}
+
+$list: fish dog cat;
+
+@each $i in $list {
+    .image-#{$i} {
+        width: 100%;
+        height: 200px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url("../images/#{$i}.png");
+    }
+}
+
+// Parametros
+body {
+    @include autoMargin();
+    justify-content: center;
+    display: grid;
+}
+
+header {
+    @include centerText();
+    background-color: darksalmon;
+}
+
+#text {
+    @include centerText();
+    margin-top: $marginTop;
+}
+
+#secTable {
+    justify-self: center;
+    @extend #text;
+}
+
+table {
+    border: 1px black solid;
+    font-size: $fontSize;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    @extend table;
+}
+
+.head-table {
+    background-color: $headTable;
+}
+
+.blue-table {
+    background-color: $blueTable;
+}
+
+.red-table {
+    background-color: $redTable;
+}
+
+.yellow-table {
+    background-color: $yellowTable;
+}
+
+.green-table {
+    background-color: $greenTable;
+}
+
+.pink-table {
+    background-color: $pinkTable;
+}
+
+#list {
+    @extend table;
+    border: none;
+}
+
+ul li {
+    font-size: $fontSize;
+
+    ul li {
+        font-size: 18px;
+
+        ul li {
+            font-size: 16px;
+        }
+    }
+}
+
+.text-hover {
+    font-size: $fontSize;
+
+    &:hover {
+        color: fuchsia;
+    }
+}
+
+.text-mod {
+    font-size: halfSize($fontSize);
+}
+
+.text-mod2 {
+    font-size: doubleSize($fontSize);
+}
+
+button {
+    @include gradient(blue, aquamarine);
+    @include btnParams();
+}
+
+.text {
+    margin-top: $marginTop;
+    font-size: $fontSize;
+}
